@@ -1,0 +1,104 @@
+/* ====== Global Page Styling ====== */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #89f7fe, #66a6ff);
+  text-align: center;
+  padding: 40px;
+  color: #222;
+}
+
+/* Header with hover transition */
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  transition: color 0.5s ease; /* Transition */
+}
+
+header h1:hover {
+  color: #ff4081; /* Smooth color change */
+}
+
+/* ====== Button Styling ====== */
+#animateBtn {
+  padding: 12px 20px;
+  margin: 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #222;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.5s ease; /* Button transition */
+}
+
+#animateBtn:hover {
+  transform: scale(1.1);
+  background: #ff4081;
+}
+
+/* ====== Box Animation Target ====== */
+#box {
+  width: 150px;
+  height: 150px;
+  margin: 40px auto;
+  background: #ffcc00;
+  border-radius: 10px;
+  transition: transform 0.5s ease, background 0.8s ease; /* Transition on style changes */
+}
+
+/* Active state triggered by JS */
+#box.active {
+  transform: rotate(360deg) scale(1.2);
+  background: #ff4081;
+  animation: bounce 1.5s infinite; /* Keyframes */
+}
+
+/* Keyframe bounce animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+}
+
+/* ====== Card Flip (extra effect) ====== */
+.card {
+  width: 200px;
+  height: 120px;
+  perspective: 1000px;
+  margin: 40px auto;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.card-front {
+  background: #66bb6a;
+  color: white;
+}
+
+.card-back {
+  background: #ef5350;
+  color: white;
+  transform: rotateY(180deg);
+}
